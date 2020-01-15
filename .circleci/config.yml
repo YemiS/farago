@@ -4,7 +4,7 @@ jobs:
     docker:
       - image: circleci/node:12
 
-    working_directory: ~/step-function
+    working_directory: ~/farago
 
     steps:
       - checkout
