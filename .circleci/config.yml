@@ -20,6 +20,7 @@ jobs:
           name: Install Serverless CLI and dependencies
           command: |
             sudo npm i -g serverless
+            sudo serverless config credentials --provider aws --key $AWS_ACCESS_KEY_ID --secret $AWS_SECRET_ACCESS_KEY --stage dev
             sudo npm install
 
       - save_cache:
@@ -29,6 +30,4 @@ jobs:
 
       - run:
           name: Deploy application
-          command: |
-            sudo serverless config credentials --provider aws --key $AWS_ACCESS_KEY_ID --secret $AWS_SECRET_ACCESS_KEY
-            sls deploy --stage dev
+          command: sls deploy --stage dev
