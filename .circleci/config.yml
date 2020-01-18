@@ -20,7 +20,8 @@ jobs:
           name: Install Serverless CLI and dependencies
           command: |
             sudo npm i -g serverless
-            npm install
+            sudo serverless config credentials -- provider aws -- key $AWS_ACCESS_KEY_ID -- secret $AWS_SECRET_ACCESS_KEY_DEV
+            sudo npm install
 
       - save_cache:
           paths:
